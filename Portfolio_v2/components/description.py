@@ -18,25 +18,17 @@ def description():
     }
 
     return rx.vstack(
-        rx.heading(
-            "Descripción", 
-            align="center",
-            width="100%",
-            margin_top="5%",
-            color_scheme="green",
-        ),
-        rx.hstack(
-            # Github foundations card
+        rx.box(
             rx.card(
                 rx.vstack(
                     rx.text(
                         rx.heading("\t Me presento:\n", size="5"),
                         rx.text(
                             "\t Me llamo Carlos Rodríguez Lobato, desarrollador full-stack|DevOps. Resido en Sevilla/España y estoy abierto a trabajar en remoto o al desplazamiento dentro del país." \
-                            " Mis preferencias laborales son el desarrollo backend/frontend y trabajar como DevOps. Cuento con conocimientos en los dos campos, además de tener experiencia de 4 meeses con prácticas en empresas, " \
+                            " Mis preferencias laborales son el desarrollo backend/frontend y trabajar como DevOps. Cuento con conocimientos en los dos campos, además de tener experiencia de 4 meses con prácticas en empresas, " \
                             " donde aprendí sobre Java(Spring boot) e hice mi primer despliegue en la nube (Azure) sobre un mini proyecto(consultor de vuelos en tiempo real)." \
-                            " Me encantan los retos, me gusta trabajar en equipo y estar rodeas de buenos profesionales." \
-                            "\n - Prefiero trabajar con Python, ya que conozco el lenguaje bien y tengo experiencia con el tras trabajarlo en proyectos personales." \
+                            " Me encantan los retos, me gusta trabajar en equipo y estar rodeado de buenos profesionales." \
+                            "\nPrefiero trabajar con Python, ya que conozco el lenguaje bien y tengo experiencia tras trabajarlo en proyectos personales." \
                             " Además también puedo trabajar con angular, js y java.",
                             tab_size="8",
                         ),
@@ -48,14 +40,25 @@ def description():
                 **card_style,
                 bg_color="#ffffff",
             ),
-            # Properties to center cards
-            justify="center",
-            align="stretch",
-            spacing="6",
-            width="100%",
-            wrap="wrap",
-            margin_top="2%",
+            rx.button(
+                "Descripción!!", 
+                size="3",
+                color_scheme="green",
+                cursor="pointer",
+                border_radius="0px",
+                border= "3px solid #000000",
+                position="absolute",
+                top="-25px",   
+                left="820px",  
+                z_index="10",
+                style={"transform": "rotate(30deg)"},
+            ),
+            position="relative",
+            width="900px",
+            margin_top="5%",
         ),
+        
+        # Fila de botones inferiores (LinkedIn, GitHub, etc.)
         rx.hstack(
             rx.link(
                 rx.button(
@@ -131,12 +134,11 @@ def description():
                 is_external=True,
                 color_scheme="indigo",
                 style={"transform": "rotate(-30deg)"},
-                
             ),
             margin_top="4%",
             justify="center",
+            width="900px",
         ),
-        wrap="wrap",
-        margin_right="8%",
-        margin_top="4%",
+        margin_right="15%",
+        margin_top="5%",
     )

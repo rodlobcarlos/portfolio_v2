@@ -3,6 +3,8 @@ import Portfolio_v2.styles.styles as styles
 from Portfolio_v2.styles.colors import TextColor, Color
 from Portfolio_v2.components.certifications import certifications
 from Portfolio_v2.components.description import description
+from Portfolio_v2.components.stack import stack
+
 
 def about_me():
     # Basic card style
@@ -53,6 +55,7 @@ def about_me():
             rx.spacer(),
             description(),
         ),
+        stack(),
         
         justify="center",
         align="stretch",

@@ -58,7 +58,7 @@ def header() ->rx.Component:
 
         align="center",
         justify="between",
-        margin_top="6%",
+        margin_top="15%",
         padding_x="10%",
         width="100%",
         wrap="wrap",

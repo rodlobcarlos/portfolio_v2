@@ -5,8 +5,8 @@ from Portfolio_v2.styles.colors import TextColor, Color
 def certifications():
     # Basic card style
     card_style = {
-        "width": "400px",
-        "height": "500px",
+        "width": "385px",
+        "height": "550px",
         "box_shadow": "-2.8px -6px 0px 3px #ffffff",
         "padding": "0",
         "border": "1px solid #000000",
@@ -26,22 +26,19 @@ def certifications():
     }
 
     return rx.vstack(
-        rx.button(
-            "Certificado!!", 
-            size="3",
-            color_scheme="gold",
-            cursor="pointer",
-            border_radius="0px",
-            box_shadow="4px 4px 0px 0px #ffffff",
-            _hover={
-                "transform": "translate(5px, 5px)",
-                "box_shadow": "0px 0px 0px 0px #ffffff",
-            },
-        ), 
         rx.hstack(
             # Github foundations card
             rx.card(
                 rx.vstack(
+                    rx.button(
+                        "Certificado!!", 
+                        size="3",
+                        color_scheme="gold",
+                        cursor="pointer",
+                        border_radius="0px",
+                        box_shadow="4px 4px 0px 0px #ffffff",
+                        width="100%",
+                    ),  
                     rx.image(
                         src="github-foundations.svg",
                         **image_style,
@@ -87,6 +84,15 @@ def certifications():
             # NexoNeural card
             rx.card(
                 rx.vstack(
+                    rx.button(
+                        "Certificado!!", 
+                        size="3",
+                        color_scheme="gold",
+                        cursor="pointer",
+                        border_radius="0px",
+                        box_shadow="4px 4px 0px 0px #ffffff",
+                        width="100%",
+                    ),
                     rx.image(
                         src="nexoneural.jpg",
                         **image_style,
@@ -137,6 +143,6 @@ def certifications():
             wrap="wrap",
             margin_top="2%",
         ),
-        margin_left="8%",
+        margin_left="15%",
         margin_top="4%",
     )
