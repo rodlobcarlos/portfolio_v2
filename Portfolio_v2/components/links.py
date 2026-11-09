@@ -1,91 +1,108 @@
 import reflex as rx
-import Portfolio_v2.styles.styles as styles
 
-def links() -> rx.Component:
-    return rx.flex(
-        rx.link(
-            rx.button(
-                "Inicio", 
-                size="3",
-                color_scheme="indigo",
-                cursor="pointer",
-                border_radius="0px",
-                box_shadow="4px 4px 0px 0px #ffffff",
-                _hover={
-                    "transform": "translate(5px, 5px)",
-                    "box_shadow": "0px 0px 0px 0px #ffffff",
-                },
-            ), 
-            href="/",
-            color_scheme="indigo",
-        ),
-        rx.link(
-            rx.button(
-                "Sobre mi", 
-                size="3",
-                color_scheme="grass",
-                cursor="pointer",
-                border_radius="0px",
-                box_shadow="4px 4px 0px 0px #ffffff",
-                _hover={
-                    "transform": "translate(5px, 5px)",
-                    "box_shadow": "0px 0px 0px 0px #ffffff",
-                },
+import Portfolio_v2.styles.styles as styles
+from Portfolio_v2.styles.colors import Color, TextColor
+
+
+def action_link(
+    label: str,
+    href: str,
+    primary: bool = True,
+    new_tab: bool = False,
+    icon: str | None = None,
+    download: str | None = None,
+    compact: bool = False,
+) -> rx.Component:
+    """Enlace con apariencia de botón, sin depender de estado ni backend."""
+
+    style = dict(styles.BUTTON_PRIMARY if primary else styles.BUTTON_SECONDARY)
+    hover = dict(
+        styles.BUTTON_PRIMARY_HOVER if primary else styles.BUTTON_SECONDARY_HOVER
+    )
+    if compact:
+        style.update({"padding": "0.45rem 0.7rem", "font_size": "0.8rem"})
+
+    children: list[rx.Component] = [rx.text(label)]
+    if icon:
+        children.append(rx.icon(icon, size=15))
+
+    # `rx.download` descarga en cliente sin navegar. Usar un botón evita que el
+    # router intercepte el clic y abra el PDF en lugar de descargarlo.
+    if download:
+        return rx.el.button(
+            *children,
+            type="button",
+            on_click=rx.download(url=href, filename=download),
+            style={**style, "font_family": "inherit"},
+            _hover=hover,
+        )
+
+    return rx.el.a(
+        *children,
+        href=href,
+        target="_blank" if new_tab else "_self",
+        rel="noopener noreferrer" if new_tab else None,
+        style=style,
+        _hover=hover,
+    )
+
+
+def nav_link(
+    label: str,
+    href: str,
+    active: bool = False,
+    new_tab: bool = False,
+) -> rx.Component:
+    return rx.el.a(
+        label,
+        href=href,
+        target="_blank" if new_tab else "_self",
+        rel="noopener noreferrer" if new_tab else None,
+        style={
+            "font_size": "0.85rem",
+            "font_weight": "500" if active else "400",
+            "color": TextColor.PRIMARY.value
+            if active
+            else TextColor.SECONDARY.value,
+            "padding": "0.35rem 0",
+            "border_bottom": (
+                f"1px solid {Color.ACCENT.value}"
+                if active
+                else "1px solid transparent"
             ),
-            href="#about_me", 
-            color_scheme="indigo",
+            "transition": "color 0.2s ease, border-color 0.2s ease",
+        },
+        _hover={
+            "color": TextColor.PRIMARY.value,
+            "border_bottom_color": Color.BORDER_STRONG.value,
+        },
+    )
+
+
+def nav_links(current_page: str = "home") -> rx.Component:
+    is_projects = current_page == "projects"
+
+    return rx.hstack(
+        nav_link(
+            "Inicio",
+            "/#inicio" if is_projects else "#inicio",
+            active=not is_projects,
         ),
-        rx.link(
-            rx.button(
-                "Carrera", 
-                size="3",
-                color_scheme="bronze",
-                cursor="pointer",
-                border_radius="0px",
-                box_shadow="4px 4px 0px 0px #ffffff",
-                _hover={
-                    "transform": "translate(5px, 5px)",
-                    "box_shadow": "0px 0px 0px 0px #ffffff",
-                },
-            ),
-            href="#carrier", 
-            color_scheme="indigo",
+        nav_link(
+            "Sobre mí",
+            "/#sobre-mi" if is_projects else "#sobre-mi",
         ),
-        rx.link(
-            rx.button(
-                "Proyectos", 
-                size="3",
-                color_scheme="gray",
-                cursor="pointer",
-                border_radius="0px",
-                box_shadow="4px 4px 0px 0px #ffffff",
-                _hover={
-                    "transform": "translate(5px, 5px)",
-                    "box_shadow": "0px 0px 0px 0px #ffffff",
-                },
-            ),
-            href="#projects", 
-            color_scheme="indigo",
-            is_external=True,
+        nav_link(
+            "Trayectoria",
+            "/#trayectoria" if is_projects else "#trayectoria",
         ),
-        rx.link(
-            rx.button(
-                "CV",
-                rx.icon("file-text", size=18),
-                size="3",
-                color_scheme="orange",
-                cursor="pointer",
-                border_radius="0px",
-                box_shadow="4px 4px 0px 0px #ffffff",
-                _hover={
-                    "transform": "translate(5px, 5px)",
-                    "box_shadow": "0px 0px 0px 0px #ffffff",
-                },
-                on_click=rx.download(url="/CV_Carlos Rodríguez Lobato.pdf", filename="CV_Carlos Rodríguez Lobato.pdf"),
-            ), 
+        nav_link(
+            "Proyectos",
+            "/proyectos",
+            active=is_projects,
+            new_tab=not is_projects,
         ),
-        spacing="5",
-        direction="row",
-        align="end",
-        is_external=True,
+        spacing=rx.breakpoints(initial="3", md="6"),
+        align="center",
+        wrap="wrap",
     )
