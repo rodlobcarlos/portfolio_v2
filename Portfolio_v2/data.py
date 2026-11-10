@@ -31,17 +31,16 @@ PROFILE = {
     "focus": "Backend · Frontend · DevOps",
     "current": "En busqueda activa de trabajo",
     "bio": (
-        "Me llamo Carlos Rodríguez Lobato y soy desarrollador full-stack y DevOps. "
+        "Me llamo Carlos Rodríguez Lobato, soy desarrollador full-stack | DevOps. "
         "Resido en Sevilla (España) y estoy abierto a trabajar en remoto o a "
         "desplazarme dentro del país. Me interesa especialmente el desarrollo "
         "backend/frontend y el trabajo como DevOps."
     ),
     "bio_2": (
-        "He realizado prácticas en Atos (Eviden), donde he trabajado con Java, "
-        "Spring Boot y Azure, y he formado parte de un proyecto real de Ferrovial "
-        "con el equipo de DevOps. Me gustan los retos, el trabajo en equipo y seguir "
-        "aprendiendo rodeado de buenos profesionales. Prefiero Python para "
-        "desarrollo, y también trabajo con Angular, JavaScript y Java."
+        "He realizado prácticas en Atos donde he formado parte de un proyecto real ferroviario "
+        "con el equipo de DevOps trabajando en el entorno de Azure. También he realizado prácticas en Eviden, "
+        "donde he trabajado con Java, Hibernate, JPA y Spring Boot. Me gustan los retos, el trabajo en equipo y seguir "
+        "aprendiendo rodeado de buenos profesionales."
     ),
     "cv": "cv_carlos_rodriguez_lobato.pdf",
 }
