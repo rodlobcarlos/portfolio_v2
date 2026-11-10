@@ -1,0 +1,2 @@
+[tool.vercel]
+entrypoint = "Portfolio_v2.Portfolio_v2:app"
