@@ -209,9 +209,8 @@ def projects_page() -> rx.Component:
                         color=TextColor.PRIMARY.value,
                     ),
                     rx.text(
-                        "Una selección de proyectos personales y académicos. Cada uno "
-                        "me ha servido para aprender algo nuevo sobre desarrollo, "
-                        "infraestructura o producto.",
+                        "Selección de proyectos personales, cada uno "
+                        "me ha servido para aprender algo nuevo ya sea en desarrollo o relacionado con la metodología DevOps.",
                         font_size="1rem",
                         color=TextColor.SECONDARY.value,
                         max_width="680px",
