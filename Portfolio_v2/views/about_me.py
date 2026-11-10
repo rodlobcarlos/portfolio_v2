@@ -1,5 +1,6 @@
 import reflex as rx
 
+import Portfolio_v2.styles.styles as styles
 from Portfolio_v2.components.certifications import certifications
 from Portfolio_v2.components.section import section
 from Portfolio_v2.components.social_links import social_links
@@ -11,7 +12,7 @@ from Portfolio_v2.styles.fonts import Font
 
 def quick_fact(label: str, value: str, icon: str) -> rx.Component:
     return rx.hstack(
-        rx.icon(icon, size=16, color=TextColor.MUTED.value),
+        rx.icon(icon, size=16, color=Color.ACCENT.value),
         rx.vstack(
             rx.text(
                 label,
@@ -63,11 +64,11 @@ def about_me() -> rx.Component:
                     rel="noopener noreferrer",
                     style={
                         "font_size": "0.9rem",
-                        "color": TextColor.PRIMARY.value,
+                        "color": Color.ACCENT.value,
                         "text_decoration": "none",
                         "margin_top": "0.5rem",
                     },
-                    _hover={"color": TextColor.SECONDARY.value},
+                    _hover={"color": Color.ACCENT_2.value},
                 ),
                 spacing="4",
                 align="start",
@@ -83,6 +84,7 @@ def about_me() -> rx.Component:
                 border=f"1px solid {Color.BORDER.value}",
                 border_radius="0.75rem",
                 background_color=Color.SURFACE.value,
+                background_image=styles.ACCENT_GRADIENT_SUBTLE,
                 width="100%",
             ),
             columns=rx.breakpoints(initial="1", md="2"),

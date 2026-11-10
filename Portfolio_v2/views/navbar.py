@@ -23,7 +23,7 @@ def navbar(current_page: str = "home") -> rx.Component:
                         ".dev",
                         font_family=Font.MONO.value,
                         font_size="0.8rem",
-                        color=TextColor.MUTED.value,
+                        color=Color.ACCENT.value,
                     ),
                     spacing="0",
                     align="center",
@@ -55,7 +55,7 @@ def navbar(current_page: str = "home") -> rx.Component:
         width="100%",
         padding_x=rx.breakpoints(initial="1.25rem", md="2rem"),
         padding_y="0.8rem",
-        background_color="rgba(10, 10, 10, 0.85)",
+        background_color="rgba(18, 18, 18, 0.85)",
         backdrop_filter="blur(14px)",
-        border_bottom=f"1px solid {Color.BORDER.value}",
+        border_bottom=f"1px solid {Color.ACCENT_BORDER.value}",
     )

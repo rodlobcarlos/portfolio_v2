@@ -1,7 +1,7 @@
 import reflex as rx
 
 import Portfolio_v2.styles.styles as styles
-from Portfolio_v2.styles.colors import TextColor
+from Portfolio_v2.styles.colors import Color, TextColor
 from Portfolio_v2.styles.fonts import Font
 
 
@@ -13,13 +13,23 @@ def section(
     *children: rx.Component,
 ) -> rx.Component:
     header: list[rx.Component] = [
-        rx.text(
-            eyebrow,
-            font_family=Font.MONO.value,
-            font_size="0.68rem",
-            letter_spacing="0.18em",
-            color=TextColor.MUTED.value,
-            text_transform="uppercase",
+        rx.hstack(
+            rx.box(
+                width="26px",
+                height="2px",
+                border_radius="full",
+                background_image=styles.ACCENT_GRADIENT,
+            ),
+            rx.text(
+                eyebrow,
+                font_family=Font.MONO.value,
+                font_size="0.68rem",
+                letter_spacing="0.18em",
+                color=Color.ACCENT.value,
+                text_transform="uppercase",
+            ),
+            spacing="3",
+            align="center",
         ),
         rx.heading(
             title,

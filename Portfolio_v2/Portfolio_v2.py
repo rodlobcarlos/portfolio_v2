@@ -1,6 +1,7 @@
 import reflex as rx
 
 import Portfolio_v2.styles.styles as styles
+from Portfolio_v2.components.background import animated_background
 from Portfolio_v2.styles.colors import Color
 from Portfolio_v2.views.about_me import about_me
 from Portfolio_v2.views.career import career
@@ -12,17 +13,25 @@ from Portfolio_v2.views.projects import projects_page
 
 def index() -> rx.Component:
     return rx.box(
-        navbar("home"),
+        animated_background(),
         rx.box(
-            hero(),
-            about_me(),
-            career(),
+            navbar("home"),
+            rx.box(
+                hero(),
+                about_me(),
+                career(),
+                width="100%",
+            ),
+            footer(),
+            position="relative",
+            z_index="1",
             width="100%",
         ),
-        footer(),
         width="100%",
         min_height="100vh",
         background_color=Color.BACKGROUND.value,
+        background_image=styles.PAGE_BACKGROUND,
+        position="relative",
     )
 
 

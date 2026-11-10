@@ -1,5 +1,6 @@
 import reflex as rx
 
+import Portfolio_v2.styles.styles as styles
 from Portfolio_v2.data import CERTIFICATIONS
 from Portfolio_v2.styles.colors import Color, TextColor
 from Portfolio_v2.styles.fonts import Font
@@ -18,7 +19,7 @@ def cert_card(cert: dict) -> rx.Component:
             width=rx.breakpoints(initial="96px", md="140px"),
             height=rx.breakpoints(initial="96px", md="140px"),
             padding="1rem",
-            background_color="#0D1117",
+            background_color=Color.SURFACE_ALT.value,
             border=f"1px solid {Color.BORDER.value}",
             border_radius="0.5rem",
             flex_shrink="0",
@@ -30,11 +31,11 @@ def cert_card(cert: dict) -> rx.Component:
                     font_family=Font.MONO.value,
                     font_size="0.68rem",
                     letter_spacing="0.14em",
-                    color=TextColor.MUTED.value,
+                    color=Color.WARNING.value,
                     text_transform="uppercase",
                     font_weight="bold",
                 ),
-                rx.icon("award", size=14, color=TextColor.MUTED.value),
+                rx.icon("award", size=14, color=Color.WARNING.value),
                 spacing="2",
                 align="center",
             ),
@@ -62,10 +63,10 @@ def cert_card(cert: dict) -> rx.Component:
                 rel="noopener noreferrer",
                 style={
                     "font_size": "0.85rem",
-                    "color": TextColor.PRIMARY.value,
+                    "color": Color.ACCENT.value,
                     "text_decoration": "none",
                 },
-                _hover={"color": TextColor.SECONDARY.value},
+                _hover={"color": Color.ACCENT_2.value},
             ),
             spacing="2",
             align="start",
@@ -77,6 +78,9 @@ def cert_card(cert: dict) -> rx.Component:
         border=f"1px solid {Color.BORDER.value}",
         border_radius="0.75rem",
         background_color=Color.SURFACE.value,
+        background_image=styles.WARNING_GRADIENT_SUBTLE,
+        transition="all 0.2s ease",
+        _hover={"border_color": Color.WARNING_BORDER.value},
         width="100%",
     )
 
@@ -88,7 +92,7 @@ def certifications() -> rx.Component:
             font_family=Font.MONO.value,
             font_size="0.68rem",
             letter_spacing="0.18em",
-            color=TextColor.MUTED.value,
+            color=Color.WARNING.value,
             text_transform="uppercase",
         ),
         rx.vstack(

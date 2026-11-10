@@ -8,12 +8,22 @@ from Portfolio_v2.styles.fonts import Font
 
 
 def timeline_item(item: dict, is_last: bool) -> rx.Component:
+    is_education = item["type"] == "Formación"
+    accent = Color.SUCCESS.value if is_education else Color.ACCENT.value
+    accent_border = (
+        Color.SUCCESS_BORDER.value if is_education else Color.ACCENT_BORDER.value
+    )
+    accent_soft = (
+        Color.SUCCESS_SOFT.value if is_education else Color.ACCENT_SOFT.value
+    )
+
     return rx.box(
         rx.box(
             width="9px",
             height="9px",
             border_radius="full",
-            background_color=Color.ACCENT.value,
+            background_color=accent,
+            box_shadow=f"0 0 10px {accent_border}",
             position="absolute",
             left="-5px",
             top="0.45rem",
@@ -31,10 +41,11 @@ def timeline_item(item: dict, is_last: bool) -> rx.Component:
                     font_family=Font.MONO.value,
                     font_size="0.62rem",
                     letter_spacing="0.12em",
-                    color=TextColor.SECONDARY.value,
+                    color=accent,
                     text_transform="uppercase",
                     padding="0.15rem 0.45rem",
-                    border=f"1px solid {Color.BORDER.value}",
+                    border=f"1px solid {accent_border}",
+                    background_color=accent_soft,
                     border_radius="999px",
                 ),
                 spacing="3",
@@ -65,7 +76,7 @@ def timeline_item(item: dict, is_last: bool) -> rx.Component:
             width="100%",
         ),
         position="relative",
-        border_left=f"1px solid {Color.BORDER.value}",
+        border_left=f"1px solid {Color.ACCENT_BORDER.value}",
         padding_left="1.75rem",
         width="100%",
     )

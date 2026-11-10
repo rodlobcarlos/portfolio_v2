@@ -9,7 +9,7 @@ def social_links() -> rx.Component:
         *[
             rx.el.a(
                 rx.hstack(
-                    rx.icon(social["icon"], size=16),
+                    rx.icon(social["icon"], size=16, color=Color.ACCENT.value),
                     rx.text(social["name"], font_size="0.85rem"),
                     spacing="2",
                     align="center",
@@ -28,7 +28,8 @@ def social_links() -> rx.Component:
                 },
                 _hover={
                     "color": TextColor.PRIMARY.value,
-                    "border_color": Color.BORDER_STRONG.value,
+                    "border_color": Color.ACCENT_BORDER.value,
+                    "background_color": Color.ACCENT_SOFT.value,
                 },
             )
             for social in SOCIALS

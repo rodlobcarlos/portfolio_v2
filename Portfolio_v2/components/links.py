@@ -60,8 +60,8 @@ def nav_link(
         rel="noopener noreferrer" if new_tab else None,
         style={
             "font_size": "0.85rem",
-            "font_weight": "500" if active else "400",
-            "color": TextColor.PRIMARY.value
+            "font_weight": "600" if active else "400",
+            "color": Color.ACCENT.value
             if active
             else TextColor.SECONDARY.value,
             "padding": "0.35rem 0",
@@ -73,8 +73,8 @@ def nav_link(
             "transition": "color 0.2s ease, border-color 0.2s ease",
         },
         _hover={
-            "color": TextColor.PRIMARY.value,
-            "border_bottom_color": Color.BORDER_STRONG.value,
+            "color": Color.ACCENT_2.value,
+            "border_bottom_color": Color.ACCENT_BORDER.value,
         },
     )
 

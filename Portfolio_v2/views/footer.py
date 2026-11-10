@@ -9,7 +9,12 @@ from Portfolio_v2.styles.fonts import Font
 def footer() -> rx.Component:
     return rx.box(
         rx.vstack(
-            rx.divider(border_color=Color.BORDER.value),
+            rx.box(
+                width="100%",
+                height="1px",
+                background_image=styles.ACCENT_GRADIENT,
+                opacity="0.35",
+            ),
             rx.hstack(
                 rx.text(
                     f"© 2026 {PROFILE['name']}",
@@ -29,7 +34,7 @@ def footer() -> rx.Component:
                                 "color": TextColor.MUTED.value,
                                 "text_decoration": "none",
                             },
-                            _hover={"color": TextColor.PRIMARY.value},
+                            _hover={"color": Color.ACCENT.value},
                         )
                         for social in SOCIALS
                     ],
