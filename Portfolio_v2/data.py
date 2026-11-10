@@ -53,20 +53,25 @@ SOCIALS = [
 
 STACK = [
     {
-        "name": "Desarrollo",
+        "name": "Backend",
         "icon": "code",
         "items": [
             {"name": "Python", "icon": "python.png"},
-            {"name": "Angular", "icon": "angular.png"},
             {"name": "Java", "icon": "java.png"},
             {"name": "Spring Boot", "icon": "springboot.png"},
             {"name": "Node.js", "icon": "node.png"},
-            {"name": "MongoDB", "icon": "mongo.png"},
-            {"name": "MySQL", "icon": "mysql.png"},
-            {"name": "JavaScript"},
-            {"name": "TypeScript"},
-            {"name": "Oracle PL/SQL"},
-            {"name": "HTML / CSS"},
+            {"name": "FastAPI", "icon": "fastapi.png"},
+        ],
+    },
+    {
+        "name": "Frontend",
+        "icon": "code",
+        "items": [
+            {"name": "Angular", "icon": "angular.png"},
+            {"name": "JavaScript", "icon": "JavaScript.png"},
+            {"name": "TypeScript", "icon": "typescript.png"},
+            {"name": "HTML / CSS", "icon": "htmlcss.png"},
+            {"name": "Reflex", "icon": "reflex.png"},
         ],
     },
     {
@@ -77,14 +82,23 @@ STACK = [
             {"name": "Azure DevOps", "icon": "azureDevOps.png"},
             {"name": "Terraform", "icon": "terraform.png"},
             {"name": "CodeQL", "icon": "codeql.jpeg"},
-            {"name": "CI/CD"},
-            {"name": "IaC"},
-            {"name": "Kubernetes"},
-            {"name": "GitOps"},
-            {"name": "Trivy"},
-            {"name": "Prometheus"},
-            {"name": "Grafana"},
-            {"name": "Git / GitHub"},
+            {"name": "CI/CD", "icon": "cicd.png"},
+            {"name": "Kubernetes", "icon": "kubernetes.png"},
+            {"name": "GitOps", "icon": "gitops.png"},
+            {"name": "Trivy", "icon": "trivy.png"},
+            {"name": "Prometheus", "icon": "prometheus.png"},
+            {"name": "Grafana", "icon": "grafana.png"},
+            {"name": "Git / GitHub", "icon": "github.png"},
+            {"name": "GitHub Copilot", "icon": "copilot.png"}
+        ],
+    },
+    {
+        "name": "Base de datos",
+        "icon": "database",
+        "items": [
+            {"name": "MongoDB", "icon": "mongo.png"},
+            {"name": "MySQL", "icon": "mysql.png"},
+            {"name": "Oracle PL/SQL", "icon": "plsql.png"},
         ],
     },
 ]
