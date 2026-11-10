@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "Portfolio_v2.py"
-    }
-  ]
-}
