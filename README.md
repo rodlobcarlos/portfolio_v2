@@ -8,12 +8,14 @@ Portfolio personal construido íntegramente en Python con [Reflex](https://refle
 
 - Página principal con secciones **Inicio**, **Sobre mí** y **Trayectoria** con scroll suave.
 - Página **Proyectos** en `/proyectos`, abierta en una pestaña nueva desde la navbar.
-- Stack técnico agrupado por área (Desarrollo y DevOps) con iconos.
+- Stack técnico agrupado por área (Backend, Frontend, DevOps y Base de datos) con iconos.
 - Certificaciones, experiencia y formación con etiquetas de tecnologías.
 - Enlaces a GitHub, LinkedIn, Gmail e InfoJobs.
 - Descarga del CV en PDF desde la navbar y el hero.
 - Diseño responsive verificado en móvil, tablet y escritorio.
-- Tipografías Inter y JetBrains Mono; tema oscuro con acento monocromo.
+- Tipografías Inter y JetBrains Mono; tema oscuro carbón con acentos teal y verde menta.
+- Fondo animado de puntos en movimiento diagonal (CSS puro, respeta `prefers-reduced-motion`).
+- Botones CTA con sombra dura menta/teal que se "hunden" al hover.
 
 ## Stack
 
