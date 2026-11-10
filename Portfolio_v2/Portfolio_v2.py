@@ -38,6 +38,14 @@ def index() -> rx.Component:
 app = rx.App(
     stylesheets=styles.STYLESHEETS,
     style={**styles.BASE_STYLE, **styles.CUSTOM_STYLE},
+    head_components=[
+        rx.el.link(
+            rel="icon",
+            type="image/png",
+            sizes="any",
+            href=rx.asset("c.png"),
+        ),
+    ],
 )
 
 app.add_page(
