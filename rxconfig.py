@@ -11,6 +11,7 @@ config = rx.Config(
                 accent_color="teal",
                 radius="none",
                 has_background=True,
+                show_reflex_badge=False,
             )
         ),
     ],
