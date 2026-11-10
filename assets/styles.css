@@ -100,4 +100,9 @@ a {
   .dot-layer {
     animation: none;
   }
+
+  .hard-shadow-btn:hover,
+  .hard-shadow-btn:active {
+    transform: none !important;
+  }
 }

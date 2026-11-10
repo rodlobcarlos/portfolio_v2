@@ -20,7 +20,22 @@ def action_link(
         styles.BUTTON_PRIMARY_HOVER if primary else styles.BUTTON_SECONDARY_HOVER
     )
     if compact:
-        style.update({"padding": "0.45rem 0.7rem", "font_size": "0.8rem"})
+        style.update(
+            {
+                "padding": "0.45rem 0.7rem",
+                "font_size": "0.8rem",
+                "box_shadow": (
+                    styles.HARD_SHADOW_PRIMARY_COMPACT
+                    if primary
+                    else styles.HARD_SHADOW_SECONDARY_COMPACT
+                ),
+                "_active": {
+                    "transform": "translate(2px, 2px)",
+                    "box_shadow": "0px 0px 0px 0px transparent",
+                },
+            }
+        )
+        hover.update({"transform": "translate(2px, 2px)"})
 
     children: list[rx.Component] = [rx.text(label)]
     if icon:
@@ -33,6 +48,7 @@ def action_link(
             *children,
             type="button",
             on_click=rx.download(url=href, filename=download),
+            class_name="hard-shadow-btn",
             style={**style, "font_family": "inherit"},
             _hover=hover,
         )
@@ -42,6 +58,7 @@ def action_link(
         href=href,
         target="_blank" if new_tab else "_self",
         rel="noopener noreferrer" if new_tab else None,
+        class_name="hard-shadow-btn",
         style=style,
         _hover=hover,
     )

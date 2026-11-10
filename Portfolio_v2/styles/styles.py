@@ -72,6 +72,11 @@ CUSTOM_STYLE = {
     },
 }
 
+HARD_SHADOW_PRIMARY = f"4px 4px 0px 0px {Color.ACCENT_2.value}"
+HARD_SHADOW_SECONDARY = f"4px 4px 0px 0px {Color.ACCENT.value}"
+HARD_SHADOW_PRIMARY_COMPACT = f"2px 2px 0px 0px {Color.ACCENT_2.value}"
+HARD_SHADOW_SECONDARY_COMPACT = f"2px 2px 0px 0px {Color.ACCENT.value}"
+
 BUTTON_PRIMARY = {
     "display": "inline-flex",
     "align_items": "center",
@@ -85,14 +90,22 @@ BUTTON_PRIMARY = {
     "font_size": "0.9rem",
     "font_weight": "600",
     "cursor": "pointer",
-    "transition": "all 0.2s ease",
+    "transition": (
+        "transform 0.12s ease, box-shadow 0.12s ease, "
+        "background-color 0.12s ease"
+    ),
     "white_space": "nowrap",
-    "box_shadow": "0 0 0 1px rgba(45, 212, 191, 0.25)",
+    "box_shadow": HARD_SHADOW_PRIMARY,
+    "_active": {
+        "transform": "translate(4px, 4px)",
+        "box_shadow": "0px 0px 0px 0px transparent",
+    },
 }
 
 BUTTON_PRIMARY_HOVER = {
     "background_color": Color.ACCENT_2.value,
-    "box_shadow": "0 0 22px rgba(45, 212, 191, 0.28)",
+    "transform": "translate(4px, 4px)",
+    "box_shadow": "0px 0px 0px 0px transparent",
 }
 
 BUTTON_SECONDARY = {
@@ -108,13 +121,23 @@ BUTTON_SECONDARY = {
     "font_size": "0.9rem",
     "font_weight": "500",
     "cursor": "pointer",
-    "transition": "all 0.2s ease",
+    "transition": (
+        "transform 0.12s ease, box-shadow 0.12s ease, "
+        "border-color 0.12s ease, background-color 0.12s ease"
+    ),
     "white_space": "nowrap",
+    "box_shadow": HARD_SHADOW_SECONDARY,
+    "_active": {
+        "transform": "translate(4px, 4px)",
+        "box_shadow": "0px 0px 0px 0px transparent",
+    },
 }
 
 BUTTON_SECONDARY_HOVER = {
     "border_color": Color.ACCENT.value,
     "background_color": Color.ACCENT_SOFT.value,
+    "transform": "translate(4px, 4px)",
+    "box_shadow": "0px 0px 0px 0px transparent",
 }
 
 TAG_STYLE = {
