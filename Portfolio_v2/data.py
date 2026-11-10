@@ -7,6 +7,8 @@ renderiza directamente desde los componentes de Reflex.
 LINKS = {
     "github": "https://github.com/rodlobcarlos",
     "linkedin": "https://www.linkedin.com/in/carlos-rodr%C3%ADguez-lobato-211b27330/",
+    "linkedin-portfolio": "http://linkedin.com/feed/update/urn:li:activity:7482869738788958208/",
+    "linkedin_devops": "https://www.linkedin.com/feed/update/urn:li:activity:7524784448567943169/",
     "gmail": (
         "https://mail.google.com/mail/u/0/#inbox?compose="
         "CllgCJftLcKqXBjHKjGmBcrrsGTzTCRgwMwGjZRGvmFtKkMLljWKnlQtkJTDgMVCSQHGzggCwSV"
@@ -23,7 +25,7 @@ PROFILE = {
     "short_name": "CRL",
     "role": "Desarrollador Full-Stack · DevOps",
     "tagline": "Bienvenido a mi portfolio personal, donde encontraras información sobre"
-    " mí que te puede llegar a interesar.",
+    " mí que te puede interesar!",
     "location": "Sevilla, España",
     "availability": "Remoto / desplazamiento",
     "focus": "Backend · Frontend · DevOps",
@@ -186,9 +188,8 @@ PROJECTS = [
     {
         "title": "Cloud-Native DevOps & SRE Showcase Platform",
         "description": (
-            "Monorepo que replica un SDLC completo a coste cero: CI/DevSecOps, IaC "
-            "con Terraform, GitOps con ArgoCD, Kubernetes y observabilidad SRE con "
-            "Prometheus y Grafana."
+            "Proyecto monorepo integral que reproduce a coste cero un ciclo de vida de desarrollo de software (SDLC) "
+            " completo con enfoque Cloud-Native, DevSecOps y observabilidad SRE."
         ),
         "tech": [
             "Python",
@@ -199,21 +200,26 @@ PROJECTS = [
             "Trivy",
             "Prometheus",
             "Grafana",
+
         ],
         "github": "https://github.com/rodlobcarlos/devops-end-to-end-project",
+        "linkedin_devops": "https://www.linkedin.com/feed/update/urn:li:activity:7524784448567943169/",
         "demo": None,
         "icon": "git-branch",
+        "image": "devops-platform.png"
     },
     {
         "title": "Portfolio personal con Reflex",
         "description": (
-            "Este mismo portfolio, construido íntegramente en Python con Reflex, "
+            "Este mismo portfolio, construido en Python con Reflex, "
             "sin base de datos ni backend propio. Diseño minimalista oscuro y "
             "navegación por secciones."
         ),
         "tech": ["Python", "Reflex"],
         "github": "https://github.com/rodlobcarlos/portfolio_v2",
+        "linkedin_portfolio": "http://linkedin.com/feed/update/urn:li:activity:7482869738788958208/",
         "demo": None,
         "icon": "code",
+        "image": "portfolio.png"
     },
 ]

@@ -27,7 +27,6 @@ def project_visual(project: dict, index: int) -> rx.Component:
                 alt=project["title"],
                 width="100%",
                 height="100%",
-                object_fit="cover",
                 transition="transform 0.35s ease",
                 _hover={"transform": "scale(1.04)"},
             ),
@@ -69,8 +68,40 @@ def project_card(project: dict, index: int) -> rx.Component:
                 "text_decoration": "none",
             },
             _hover={"color": Color.ACCENT_2.value},
-        )
+        ),
     ]
+    if project.get("linkedin_portfolio"):
+        links.append(
+            rx.el.a(
+                "Ver en LinkedIn",
+                href=project["linkedin_portfolio"],
+                target="_blank",
+                rel="noopener noreferrer",
+                style={
+                    "font_size": "0.82rem",
+                    "color": Color.ACCENT.value,
+                    "text_decoration": "none",
+                },
+                _hover={"color": Color.ACCENT_2.value},
+            )
+        )
+
+    if project.get("linkedin_devops"):
+            links.append(
+                rx.el.a(
+                    "Ver en LinkedIn",
+                    href=project["linkedin_devops"],
+                    target="_blank",
+                    rel="noopener noreferrer",
+                    style={
+                        "font_size": "0.82rem",
+                        "color": Color.ACCENT.value,
+                        "text_decoration": "none",
+                    },
+                    _hover={"color": Color.ACCENT_2.value},
+                )
+            )
+
     if project.get("demo"):
         links.append(
             rx.el.a(
