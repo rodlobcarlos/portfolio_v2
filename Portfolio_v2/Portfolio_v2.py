@@ -46,6 +46,14 @@ app = rx.App(
             href=rx.asset("c.png"),
         ),
     ],
+    style={
+        "a[href*='reflex.dev']": {
+            "display": "none !important",
+            "visibility": "hidden !important",
+            "opacity": "0 !important",
+            "pointer_events": "none !important",
+        }
+    }
 )
 
 app.add_page(
