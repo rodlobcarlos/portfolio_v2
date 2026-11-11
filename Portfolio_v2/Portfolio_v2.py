@@ -37,7 +37,17 @@ def index() -> rx.Component:
 
 app = rx.App(
     stylesheets=styles.STYLESHEETS,
-    style={**styles.BASE_STYLE, **styles.CUSTOM_STYLE},
+    style={
+        **styles.BASE_STYLE, 
+        **styles.CUSTOM_STYLE,
+        # Ocultar reflex badge
+        "a[href*='reflex.dev']": {
+            "display": "none !important",
+            "visibility": "hidden !important",
+            "opacity": "0 !important",
+            "pointer_events": "none !important",
+        }    
+    },
     head_components=[
         rx.el.link(
             rel="icon",
@@ -46,15 +56,6 @@ app = rx.App(
             href=rx.asset("c.png"),
         ),
     ],
-    # Ocultar reflex badge
-    style={
-        "a[href*='reflex.dev']": {
-            "display": "none !important",
-            "visibility": "hidden !important",
-            "opacity": "0 !important",
-            "pointer_events": "none !important",
-        }
-    }
 )
 
 app.add_page(
