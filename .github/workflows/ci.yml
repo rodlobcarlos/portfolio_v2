@@ -44,4 +44,6 @@ jobs:
       - name: App deployed
         env:
           REFLEX_AUTH_TOKEN: ${{ secrets.REFLEX_AUTH_TOKEN }}
-        run: reflex deploy --app-name "CRL.dev" --token "${{ secrets.REFLEX_AUTH_TOKEN }}"
+        run: |
+          CLEAN_TOKEN=$(echo -n "$REFLEX_AUTH_TOKEN" | tr -d '\r\n' | xargs)
+          reflex deploy --app-name "CRL.dev" --token "$CLEAN_TOKEN"
