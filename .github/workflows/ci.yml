@@ -3,9 +3,13 @@ name: Reflex deploy
 on:
   push:
     branches: [ 'main' ]
-    
+  
   workflow_dispatch:
 
+permissions:
+  packages: write
+  contents: read
+  
 jobs:
   build_python:
     name: Build and deploy app
