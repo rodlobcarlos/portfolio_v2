@@ -46,6 +46,7 @@ app = rx.App(
             href=rx.asset("c.png"),
         ),
     ],
+    # Ocultar reflex badge
     style={
         "a[href*='reflex.dev']": {
             "display": "none !important",
