@@ -1,0 +1,6 @@
+name: crl-dev
+description: "Portfolio de Carlos Rodríguez Lobato"
+regions:
+  sjc: 1
+vmtype: c1m1
+hostname: crl-dev
