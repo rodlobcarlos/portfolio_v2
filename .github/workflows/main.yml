@@ -1,0 +1,43 @@
+name: Reflex deploy
+
+on:
+  push:
+    branches: [ 'main' ]
+    
+  workflow_dispatch:
+
+jobs:
+  build_python:
+    name: Build and deploy app
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Downdload code
+        uses: actions/checkout@v4
+
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12.x'
+          cache: 'pip'
+          
+      - name: Set up Node.js 
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependences
+        run: |
+          python -m pip install --upgrade pip
+          pip install requirements.txt
+
+      - name: Initialize Reflex
+        run: reflex init
+
+      - name: Compile validate
+        run: reflex compile --dry
+
+      - name: App deployed
+        run: |
+          reflex login
+          reflex deploy --app-name CRL.dev --project 7e1e10a4-9331-4418-a122-c73c9d70b3fa
