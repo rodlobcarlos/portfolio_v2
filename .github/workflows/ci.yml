@@ -47,4 +47,4 @@ jobs:
           REFLEX_AUTH_TOKEN: ${{ secrets.REFLEX_AUTH_TOKEN }}
           PYTHONUNBUFFERED: "1"
         run: |
-          reflex deploy --app-name "portfolio_v2" --project "7e1e10a4-9331-4418-a122-c73c9d70b3fa" --no-interactive
+          reflex deploy --app-name "portfolio_v2" --project "7e1e10a4-9331-4418-a122-c73c9d70b3fa" --no-interactive --loglevel debug 2>&1 | tee deploy.log
