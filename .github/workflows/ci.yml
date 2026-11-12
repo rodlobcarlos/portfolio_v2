@@ -42,9 +42,9 @@ jobs:
         run: reflex compile --dry
 
       - name: Reflex Cloud Deploy 
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.ref == 'refs/heads/main'
         env:
           REFLEX_AUTH_TOKEN: ${{ secrets.REFLEX_AUTH_TOKEN }}
         run: |
           CLEAN_TOKEN=$(echo -n "$REFLEX_AUTH_TOKEN" | tr -d '\r\n' | xargs)
-          reflex deploy --app-name "CRL.dev" --project "7e1e10a4-9331-4418-a122-c73c9d70b3fa" --token "$CLEAN_TOKEN"
+          reflex deploy --app-name "portfolio_v2" --project "7e1e10a4-9331-4418-a122-c73c9d70b3fa" --token "$CLEAN_TOKEN"
