@@ -31,5 +31,5 @@ COPY . .
 # Expose the port the app runs on
 EXPOSE 3000
 
-# Set the entry point for the container
-CMD ["reflex", "run"]
+# Set the command to run the application
+CMD ["reflex", "run", "--env", "prod", "--single-port"]
