@@ -212,9 +212,10 @@ PROJECTS = [
         "description": (
             "Este mismo portfolio, construido en Python con Reflex, "
             "sin base de datos ni backend propio. Diseño minimalista oscuro y "
-            "navegación por secciones."
+            "navegación por secciones. Desplegado en Microsoft Azure mediante container app, con actualización de imagen del contenedor "
+            "con un pipeline ci/cd en GitHub Actions."
         ),
-        "tech": ["Python", "Reflex"],
+        "tech": ["Python", "Reflex", "Azure"],
         "github": "https://github.com/rodlobcarlos/portfolio_v2",
         "linkedin_portfolio": "http://linkedin.com/feed/update/urn:li:activity:7482869738788958208/",
         "demo": None,
