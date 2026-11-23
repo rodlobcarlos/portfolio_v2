@@ -16,6 +16,7 @@ Portfolio personal construido íntegramente en Python con [Reflex](https://refle
 - Tipografías Inter y JetBrains Mono; tema oscuro carbón con acentos teal y verde menta.
 - Fondo animado de puntos en movimiento diagonal (CSS puro, respeta `prefers-reduced-motion`).
 - Botones CTA con sombra dura menta/teal que se "hunden" al hover.
+- Pipeline CI/CD integrado y despliegue automatizado mediante contenedores Docker en Azure.
 
 ## Stack
 
@@ -23,7 +24,10 @@ Portfolio personal construido íntegramente en Python con [Reflex](https://refle
 - **Reflex 0.10.x**
 - **Radix Themes** (tema oscuro), **Tailwind v4** y **Sitemap** mediante plugins de Reflex
 - Componentes propios en Python; CSS global mínimo en `assets/styles.css`
-
+- Docker: Creación de imagen multietapa optimizada.
+- GitHub Actions: Pipeline de automatización CI/CD y despliegue.
+- Azure Container Apps: Alojamiento en la nube escalable y sin servidor.
+  
 ## Estructura del proyecto
 
 ```
@@ -118,12 +122,23 @@ No hace falta tocar componentes para cambiar textos: edita `data.py` y el cambio
 | `/`          | Inicio, Sobre mí y Trayectoria (scroll por anclas) |
 | `/proyectos` | Proyectos personales y académicos                 |
 
-## Despliegue
+## Despliegue y Arquitectura Cloud
 
-El proyecto no necesita base de datos ni servicios externos: es frontend estático servido por Reflex. Para producción:
+El proyecto ha evolucionado de un despliegue manual a una infraestructura profesional en la nube, destacando las siguientes mejoras implementadas:
+- **Dockerización**: La aplicación está paquetizada mediante un Dockerfile multietapa (multi-stage). El contenedor compila el frontend estático y ejecuta la app en modo producción optimizado (--env prod --single-port).
+  
+- **Automatización CI/CD**: Se ha configurado un pipeline en GitHub Actions. Con cada nuevo push a la rama principal, el entorno de integración continua construye automáticamente la nueva imagen de Docker y la publica en GitHub Container Registry (GHCR).
+  
+- **Alojamiento en Azure**: El contenedor de GHCR se despliega directamente en Azure Container Apps, aprovechando su capa de consumo gratuita para lograr un entorno de alta disponibilidad, rápido y a coste cero.Ejecución manual del contenedor en local:
+Si prefieres probar la imagen de producción en tu equipo:
 
-```bash
-.venv/bin/reflex run --env prod --single-port
+**Ejecución manual del contenedor en local**:
+
+Si prefieres probar la imagen de producción en tu equipo:
 ```
+# 1. Construir la imagen
+docker build -t portfolio-reflex .
 
-También puede desplegarse en cualquier plataforma que ejecute Reflex (Reflex Cloud, un contenedor Docker o un servidor propio con Python).
+# 2. Levantar el contenedor
+docker run -p 3000:3000 portfolio-reflex
+```
